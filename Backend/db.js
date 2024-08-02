@@ -3,39 +3,18 @@ const mongoose = require('mongoose');
 
 mongoose.connect("mongodb+srv://delta30121333:1234%40ankit@cluster0.scbm2fu.mongodb.net/Paytm")
 
-// Create a Schema for Users
+// Creating a Schema for Users
 const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        lowercase: true,
-        minLength: 3,
-        maxLength: 30
-    },
-    password: {
-        type: String,
-        required: true,
-        minLength: 6
-    },
-    firstName: {
-        type: String,
-        required: true,
-        trim: true,
-        maxLength: 50
-    },
-    lastName: {
-        type: String,
-        required: true,
-        trim: true,
-        maxLength: 50
-    }
+    username: String,
+    password: String,
+    firstName: String,
+    lastName: String
 });
+
 
 const accountSchema = new mongoose.Schema({
     userId: {
-        type: mongoose.Schema.Types.ObjectId, // Reference to User model
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
